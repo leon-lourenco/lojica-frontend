@@ -1,0 +1,321 @@
+.mono {
+  font-family: ui-monospace, "SFMono-Regular", "Cascadia Code", Consolas, monospace;
+  letter-spacing: 0.03em;
+}
+
+.display {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ---------- Nav ---------- */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.1rem clamp(1.25rem, 4vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+.topnav-brand {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+}
+.topnav-links {
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.topnav-links span.current {
+  color: var(--ember);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 3.5rem clamp(1.25rem, 4vw, 4rem);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.hero-copy h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+.hero-copy p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 44ch;
+}
+.hero-signoff {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+.hero-portrait {
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  background: linear-gradient(155deg, var(--celadon), var(--celadon-soft));
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: var(--paper);
+}
+.hero-portrait span {
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+/* ---------- Catálogo por coleção ---------- */
+main {
+  padding: 3rem clamp(1.25rem, 4vw, 4rem) 4rem;
+}
+.collection {
+  margin-bottom: 3rem;
+}
+.collection:last-child {
+  margin-bottom: 0;
+}
+.collection-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.collection-head h2 {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.collection-head span {
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.strip {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x proximity;
+}
+.piece-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+.piece-card:focus-visible {
+  outline: 2px solid var(--celadon);
+  outline-offset: 3px;
+}
+.piece-frame {
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.piece-frame::after {
+  content: "foto da peça";
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.62rem;
+  color: var(--paper);
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.tone-1 {
+  background: linear-gradient(155deg, var(--celadon), var(--celadon-soft));
+}
+.tone-2 {
+  background: linear-gradient(155deg, var(--ember), #8a3a1f);
+}
+.tone-3 {
+  background: linear-gradient(155deg, var(--clay), #6b5c4a);
+}
+.tone-4 {
+  background: linear-gradient(155deg, #5a6a4f, var(--celadon));
+}
+.piece-sold {
+  filter: grayscale(0.65) brightness(0.85);
+}
+.piece-title {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+}
+.piece-meta {
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--clay);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.piece-price {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+}
+.badge {
+  display: inline-block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  width: fit-content;
+}
+.badge-sold {
+  color: var(--clay);
+}
+.badge-unique {
+  color: var(--ember);
+}
+.badge-variant {
+  color: var(--celadon);
+}
+
+/* ---------- Modal de detalhe ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 28, 22, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 10;
+}
+.modal {
+  background: var(--paper);
+  border-radius: 10px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.modal-frame {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.modal-frame::after {
+  content: "foto da peça";
+  position: absolute;
+  bottom: 0.9rem;
+  left: 0.9rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  color: var(--paper);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.modal-info {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.modal-title {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+}
+.modal-price {
+  font-family: ui-monospace, monospace;
+  font-size: 1.2rem;
+  color: var(--ember);
+}
+.modal-desc {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.spec-table {
+  border-top: 1px solid var(--line);
+  font-family: ui-monospace, monospace;
+  font-size: 0.82rem;
+}
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.spec-row dt {
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+}
+.spec-row dd {
+  margin: 0;
+  text-align: right;
+}
+.modal-close {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.modal-close:hover {
+  border-color: var(--ink-soft);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 2rem clamp(1.25rem, 4vw, 4rem) 3rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--clay);
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .modal {
+    grid-template-columns: 1fr;
+  }
+}
